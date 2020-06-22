@@ -74,7 +74,7 @@ InvoiceState transaction:
     |                                                                                                    |
     |    - - - - - - - - - -                                     -----------------------------------|    |
     |                                              ▲             |                                  |    |
-    |    |                 |                       | -►          |   InvoiceState                     |    |
+    |    |                 |                       | -►          |   InvoiceState                   |    |
     |            NO             -------------------     -►       |                                  |    |
     |    |                 |    | Issue command            -►    |   - issuer                       |    |
     |          INPUTS           | signed by issuer & owner -►    |   - .....                        |    |
@@ -164,14 +164,17 @@ Once you've finished the CorDapp's code, run it with the following steps:
     `flow start InvoiceIssueFlow owner: PartyB, amount: 99`
 
     Complete command: 
+    
     ```start Invoice owner:  PartyA, payTermDescription: AA, currencyCode: INR, invoiceTransactionType: CASH, policyNumber:  12345,coverageCode:  1, coverageName: CN, policyEventType: BASE, installmentDueDate: 2020-06-12, invoiceNumber:  123, invoiceLineNumber: 1, financialTransactionCode: ABC, financialTransactionAmt:  99, apStatus: Pass, payToID: abc, payeeName: ABC, invoiceTransactionID: ABC123```
 
 * You can now see the invoice in the vaults of Party A and Party B (but not 
   Party C!) by running the following command in their respective terminals:
 
     `run vaultQuery contractStateType: invoice.InvoiceState`
+    
     or
-    `run vaultQuery contractStateType: net.corda.core.contracts.ContractState`
+    
+    ```run vaultQuery contractStateType: net.corda.core.contracts.ContractState```
 
 
 * Credits: Corda Bootcamp
